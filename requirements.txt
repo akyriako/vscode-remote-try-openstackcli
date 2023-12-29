@@ -1,1 +1,1 @@
-flask
+python-openstackclient
