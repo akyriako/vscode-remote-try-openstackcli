@@ -34,7 +34,7 @@
 	// 	}
 	// },
 	"workspaceMount": "source=~/.opentelekomcloud,destination=/workspace/.opentelekomcloud,type=bind,consistency=cached",
-	"runArgs": ["-e", "OS_AUTH_URL=${env:OS_AUTH_URL}", "-e", "OS_PROJECT_NAME=${env:OS_PROJECT_NAME}", "-e", "OS_USERNAME=${env:OS_USERNAME}", "-e", "OS_PASSWORD=${env:OS_PASSWORD}", "-e", "OS_USER_DOMAIN_NAME=${env:OS_USER_DOMAIN_NAME}", "-e", "OS_PROJECT_DOMAIN_NAME=${env:OS_PROJECT_DOMAIN_NAME}", "-e", "OS_REGION_NAME=${env:OS_REGION_NAME}"]
+	"runArgs": ["-e", "OS_AUTH_URL=${env:OS_AUTH_URL}", "-e", "OS_PROJECT_NAME=${env:OS_PROJECT_NAME}", "-e", "OS_USERNAME=${env:OS_USERNAME}", "-e", "OS_PASSWORD=${env:OS_PASSWORD}", "-e", "OS_USER_DOMAIN_NAME=${env:OS_USER_DOMAIN_NAME}", "-e", "OS_PROJECT_DOMAIN_NAME=${env:OS_PROJECT_DOMAIN_NAME}", "-e", "OS_REGION_NAME=${env:OS_REGION_NAME}"],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "pip3 install -r requirements.txt"
