@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/python
 {
-	"name": "Python 3",
+	"name": "opentelekomcloud/openstack",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"image": "mcr.microsoft.com/devcontainers/python:0-3.11",
 
@@ -33,8 +33,20 @@
 	// 		"onAutoForward": "notify"
 	// 	}
 	// },
-	// "workspaceMount": "source=~/.opentelekomcloud,destination=/workspace/.opentelekomcloud,type=bind,consistency=cached",
-	"runArgs": ["-e", "OS_AUTH_URL=${localEnv:OS_AUTH_URL}", "-e", "OS_PROJECT_NAME=${localEnv:OS_PROJECT_NAME}", "-e", "OS_USERNAME=${localEnv:OS_USERNAME}", "-e", "OS_PASSWORD=${localEnv:OS_PASSWORD}", "-e", "OS_USER_DOMAIN_NAME=${localEnv:OS_USER_DOMAIN_NAME}", "-e", "OS_PROJECT_DOMAIN_NAME=${localEnv:OS_PROJECT_DOMAIN_NAME}", "-e", "OS_REGION_NAME=${localEnv:OS_REGION_NAME}"],
+	
+	"mounts": [
+		"source=${localEnv:HOME}/.opentelekomcloud,target=${containerWorkspaceFolder}/.opentelekomcloud,type=bind,consistency=cached"
+	],
+	
+	"runArgs": [
+		"-e", "OS_AUTH_URL=${localEnv:OS_AUTH_URL}", 
+		"-e", "OS_PROJECT_NAME=${localEnv:OS_PROJECT_NAME}", 
+		"-e", "OS_USERNAME=${localEnv:OS_USERNAME}", 
+		"-e", "OS_PASSWORD=${localEnv:OS_PASSWORD}", 
+		"-e", "OS_USER_DOMAIN_NAME=${localEnv:OS_USER_DOMAIN_NAME}", 
+		"-e", "OS_PROJECT_DOMAIN_NAME=${localEnv:OS_PROJECT_DOMAIN_NAME}", 
+		"-e", "OS_REGION_NAME=${localEnv:OS_REGION_NAME}"
+	],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "pip3 install -r requirements.txt"
