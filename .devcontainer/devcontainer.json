@@ -33,34 +33,20 @@
 	// 		"onAutoForward": "notify"
 	// 	}
 	// },
-	
-	// "mounts": [
-	// 	"source=${localEnv:HOME}/.opentelekomcloud,target=${containerWorkspaceFolder}/.opentelekomcloud,type=bind,consistency=cached"
-	// ],
 
-	"containerEnv": {
-		"OS_AUTH_URL": "${localEnv:OS_AUTH_URL}",
-		"OS_PROJECT_NAME": "${localEnv:OS_PROJECT_NAME}",
-		"OS_USERNAME": "${localEnv:OS_USERNAME}",
-		"OS_PASSWORD": "${localEnv:OS_PASSWORD}",
-		"OS_USER_DOMAIN_NAME": "${localEnv:OS_USER_DOMAIN_NAME}",
-		"OS_PROJECT_DOMAIN_NAME": "${localEnv:OS_PROJECT_DOMAIN_NAME}",
-		"OS_REGION_NAME": "${localEnv:OS_REGION_NAME}"
-	},
-	
-	// "runArgs": [
-	// 	"-e", "OS_AUTH_URL=${localEnv:OS_AUTH_URL}", 
-	// 	"-e", "OS_PROJECT_NAME=${localEnv:OS_PROJECT_NAME}", 
-	// 	"-e", "OS_USERNAME=${localEnv:OS_USERNAME}", 
-	// 	"-e", "OS_PASSWORD=${localEnv:OS_PASSWORD}", 
-	// 	"-e", "OS_USER_DOMAIN_NAME=${localEnv:OS_USER_DOMAIN_NAME}", 
-	// 	"-e", "OS_PROJECT_DOMAIN_NAME=${localEnv:OS_PROJECT_DOMAIN_NAME}", 
-	// 	"-e", "OS_REGION_NAME=${localEnv:OS_REGION_NAME}"
-	// ],
+	"mounts": [
+		// "source=${localEnv:HOME}/.opentelekomcloud,target=/home/vscode/.config/openstack,type=bind,consistency=cached",
+		"source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached"
+	],
+
+	"runArgs": [
+        "--env-file", "${localWorkspaceFolder}/.devcontainer/.env"
+    ], 
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "pip3 install -r requirements.txt"
+	
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	//"remoteUser": "root"
+	// "remoteUser": "root"
 }
